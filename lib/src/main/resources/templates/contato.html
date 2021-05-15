@@ -2,8 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 
 <head>
-	<meta charset="ISO-8859-1">
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link th:href="@{../main.css}" rel="stylesheet">
 	<title>Contato</title>
 </head>
@@ -20,6 +19,18 @@
 		</nav>
 	</header>
 	
-	<h1>Página Contato</h1>
+	<h1>Pagina Contato</h1>
+	
+	<main>
+		 <form action="#" th:action="@{/visitante}" method=post th:object="${visitante}">
+			Nome: <input type="text" th:field="*{nome}"><br>
+    		Email: <input type="text" th:field="*{email}"><br>
+    		Telefone: <input type="tel" th:field="*{telefone}"><br>
+    		Mensagem: <input type="text" th:field="*{mensagem}"><br>
+    		Por qual meio deseja ser contatado: <input type="text" th:field="*{formaContato}"><br>
+    		Periodo: <input type="text" th:field="*{periodo}">
+    		<input type="submit" value="Eviar">
+		</form>										
+	</main>
 </body>
 </html>
