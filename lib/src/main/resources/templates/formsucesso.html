@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
-<meta charset="ISO-8859-1">
-<title>Sucesso</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Sucesso</title>
 </head>
 <body>
 
 	<h1>Sua mensagem foi enviada com sucesso!</h1>
+	
+	<a th:href="@{/}">Voltar</a>
 
 </body>
 </html>

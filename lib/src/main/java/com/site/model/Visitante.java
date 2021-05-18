@@ -1,4 +1,4 @@
-package com.model;
+package com.site.model;
 
 public class Visitante {
 

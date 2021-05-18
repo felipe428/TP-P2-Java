@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS cliente (
+CREATE TABLE IF NOT EXISTS visitante (
      id serial PRIMARY KEY,
      nome varchar(50),
      email varchar(256),
