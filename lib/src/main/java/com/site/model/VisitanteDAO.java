@@ -21,15 +21,13 @@ public class VisitanteDAO {
 	}
 	
 	public void inserirVisitante(Visitante visitante) {
-		String sql = "INSERT INTO visitante(nome,email,telefone,mensagem,formaContato,periodo)" +
-	                 " VALUES (?,?,?,?,?,?)";
-		Object[] obj = new Object[6];
+		String sql = "INSERT INTO visitante(nome,email,telefone,mensagem)" +
+	                 " VALUES (?,?,?,?)";
+		Object[] obj = new Object[4];
 		obj[0] = visitante.getNome();
 		obj[1] = visitante.getEmail();
 		obj[2] = visitante.getTelefone();
 		obj[3] = visitante.getMensagem();
-		obj[4] = visitante.getFormaContato();
-		obj[5] = visitante.getPeriodo();
 		jdbc.update(sql, obj);
 	}
 }

@@ -39,9 +39,4 @@ public class SiteController {
 		vs.inserirVisitante(vi);
 		return "formsucesso";
 	}
-	
-	@GetMapping("/projetos")
-	public String projetos() {
-		return "projetos"; 
-	}
 }

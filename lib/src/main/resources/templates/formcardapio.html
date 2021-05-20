@@ -4,9 +4,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link th:href="@{../main.css}" rel="stylesheet">
-	<title>Home</title>
+	<title>Cadastrar Cardapio</title>
 </head>
-
 <body>
 	<header>
 		<nav id="menu">
@@ -20,7 +19,13 @@
 		</nav>
 	</header>
 	
-	<h1>Pagina Home</h1>
+	<h1>Add Cardapio</h1>
 
+    <form action="#" th:action="@{/cardapio}" th:object="${card}" method=post>
+    	Nome: <input type="text" th:field="*{nome}">
+    	Descrição: <input type="text" th:field="*{descricao}">
+    	Preco: <input type="text" th:field="*{preco}">
+    	<input type="submit" value="Cadastrar">
+    </form>
 </body>
 </html>

@@ -13,8 +13,9 @@
 			<ul>
 				<li> <a th:href="@{/}">Home</a> </li>
 				<li> <a th:href="@{/sobre}">Sobre</a> </li>
+				<li> <a th:href="@{/pizzas}">Pizzas</a> </li>
+				<li> <a th:href="@{/cardapio}">Cadastrar Cardapio</a> </li>
 				<li> <a th:href="@{/contato}">Contato</a> </li>
-				<li> <a th:href="@{/projetos}">Projetos</a> </li>
 			</ul>
 		</nav>
 	</header>
@@ -27,9 +28,7 @@
     		Email: <input type="text" th:field="*{email}"><br>
     		Telefone: <input type="tel" th:field="*{telefone}"><br>
     		Mensagem: <input type="text" th:field="*{mensagem}"><br>
-    		Por qual meio deseja ser contatado: <input type="text" th:field="*{formaContato}"><br>
-    		Periodo: <input type="text" th:field="*{periodo}">
-    		<input type="submit" value="Eviar">
+    		<input type="submit" value="Enviar">
 		</form>										
 	</main>
 </body>

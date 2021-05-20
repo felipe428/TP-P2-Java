@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+   <h1 th:text="${titulo}">${titulo}</h1>
+   <div th:text="'nome : ' + ${card.nome} "></div>
+   <div th:text="'cardapio : ' + ${card.descricao} "></div>
+   <div th:text="'preco : ' + ${card.preco} "></div>
+   <a th:href="@{/cardapio}">Voltar</a>
+</body>
+</html>
