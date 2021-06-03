@@ -14,8 +14,15 @@
 				<li> <a th:href="@{/}">Home</a> </li>
 				<li> <a th:href="@{/sobre}">Sobre</a> </li>
 				<li> <a th:href="@{/pizzas}">Pizzas</a> </li>
-				<li> <a th:href="@{/cardapio}">Cadastrar Cardapio</a> </li>
+				<li th:if="${session.usuarioLogado}"> <a th:href="@{/cardapio}">Cadastrar Cardapio</a> </li>
 				<li> <a th:href="@{/contato}">Contato</a> </li>
+				<li th:if="${session.usuarioLogado == null}"> <a th:href="@{/login}">Login</a> </li>
+				<form th:if="${session.usuarioLogado}" method="post" action="/logout">
+						<button type="submit">
+							<span th:text="${session.usuarioLogado.nome}"></span>
+							<span>Sair</span>
+						</button>
+				</form>
 			</ul>
 		</nav>
 	</header>

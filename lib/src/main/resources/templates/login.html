@@ -4,8 +4,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link th:href="@{../main.css}" rel="stylesheet">
-	<title>Cadastrar Cardapio</title>
+	<title>Home</title>
 </head>
+
 <body>
 	<header>
 		<nav id="menu">
@@ -13,29 +14,24 @@
 				<li> <a th:href="@{/}">Home</a> </li>
 				<li> <a th:href="@{/sobre}">Sobre</a> </li>
 				<li> <a th:href="@{/pizzas}">Pizzas</a> </li>
-				<li th:if="${session.usuarioLogado}"> <a th:href="@{/cardapio}">Cadastrar Cardapio</a> </li>
 				<li> <a th:href="@{/contato}">Contato</a> </li>
-				<li>
-					<form method="post" action="/logout">
+				<form th:if="${session.usuarioLogado}" method="post" action="/logout">
 						<button type="submit">
 							<span th:text="${session.usuarioLogado.nome}"></span>
 							<span>Sair</span>
 						</button>
-					</form>
-				</li>	
+				</form>
 			</ul>
 		</nav>
 	</header>
-
-
-	<h1>Add Cardapio</h1>
 	
-    <form action="#" th:action="@{/cardapio}" th:object="${card}" method=post>
-    	Nome: <input type="text" th:field="*{nome}">
-    	Descrição: <input type="text" th:field="*{descricao}">
-    	Preco: <input type="text" th:field="*{preco}">
-    	<input type="submit" value="Cadastrar">
-    </form>
-  
+	<h1>Login</h1>
+	
+	<form method="post" action="/efetuarLogin" th:object="${usuario}">
+		<input name="login" placeholder="Usuário">
+		<input type="password" name="senha" placeholder="Senha">
+		<button>Entrar</button>
+	</form>
+
 </body>
 </html>

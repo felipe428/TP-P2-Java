@@ -39,4 +39,5 @@ public class SiteController {
 		vs.inserirVisitante(vi);
 		return "formsucesso";
 	}
+	
 }
