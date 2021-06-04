@@ -4,34 +4,70 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link th:href="@{../main.css}" rel="stylesheet">
-	<title>Home</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<title>Login</title>
 </head>
 
 <body>
 	<header>
-		<nav id="menu">
-			<ul>
-				<li> <a th:href="@{/}">Home</a> </li>
-				<li> <a th:href="@{/sobre}">Sobre</a> </li>
-				<li> <a th:href="@{/pizzas}">Pizzas</a> </li>
-				<li> <a th:href="@{/contato}">Contato</a> </li>
-				<form th:if="${session.usuarioLogado}" method="post" action="/logout">
-						<button type="submit">
-							<span th:text="${session.usuarioLogado.nome}"></span>
-							<span>Sair</span>
-						</button>
-				</form>
-			</ul>
-		</nav>
+	<nav class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand col-3" href="#" ><img th:src="@{../logo.png}" style="width: 40px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+              <span class="sr-only">Abrir ou fechar menu</span> &#9776;
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active"> <a  class="nav-link" th:href="@{/}">Home</a> </li>
+				<li class="nav-item"> <a class="nav-link" th:href="@{/sobre}">Sobre</a> </li>
+				<li class="nav-item"> <a class="nav-link" th:href="@{/pizzas}">Pizzas</a> </li>
+				<li class="nav-item" th:if="${session.usuarioLogado}"> <a class="nav-link" th:href="@{/cardapio}">Cadastrar Cardapio</a> </li>
+				<li class="nav-item"> <a class="nav-link" th:href="@{/contato}">Contato</a> </li>
+				<li class="nav-item" th:if="${session.usuarioLogado == null}"> <a class="nav-link" th:href="@{/login}">Login</a> </li>
+				<li class="nav-item">
+					<a class="nav-link">
+						<form th:if="${session.usuarioLogado}" method="post" action="/logout">
+							<button type="submit">
+								<span th:text="${session.usuarioLogado.nome}"></span>
+								<span>| Sair</span>
+							</button>
+						</form>
+					</a>
+				</li>
+          </ul>
+        </div>
+    </nav>
 	</header>
 	
-	<h1>Login</h1>
 	
-	<form method="post" action="/efetuarLogin" th:object="${usuario}">
-		<input name="login" placeholder="Usuário">
-		<input type="password" name="senha" placeholder="Senha">
-		<button>Entrar</button>
-	</form>
+	<h1 class="text-center mt-3">Login</h1>
+	
+
+	<section class="container-fluid mt-4">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-8 col-md-5">
+				<form method="post" class="form-container" action="/efetuarLogin" th:object="${usuario}">
+					<div class="form-group">
+						<label for="login">Login:</label>
+						<input name="login" class="form-control" id="login" placeholder="Login">
+						<small>Utilize o login: admin</small>
+					</div>
+					<div class="form-group">
+						<label for="senha">Senha:</label>
+						<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+						<small>Utilize a senha: admin</small>
+					</div>
+					<button class="btn btn-primary btn-block">Entrar</button>
+				</form>
+			</section>
+		</section>
+	</section>
+
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </body>
 </html>
